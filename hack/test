@@ -18,7 +18,7 @@ case $buildmode in
   tmpfile=$(mktemp -t docker-iidfile.XXXXXXXXXX)
   buildctl build $progressFlag --frontend=dockerfile.v0 \
     --local context=. --local dockerfile=. \
-    --frontend-opt target=integration-tests \
+    --opt target=integration-tests \
     --output type=docker,name=$iid,dest=$tmpfile
   docker load -i $tmpfile
   rm $tmpfile
